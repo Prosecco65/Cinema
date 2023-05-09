@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Cinema.Models.Valuta>
+
+@{
+    ViewData["Title"] = "Valutazioni";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Box.css" asp-append-version="true" />
+</head>
+
+<h1>Recensioni</h1>
+
+@*<table class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                Valutazione
+            </th>
+            <th>
+                Film
+            </th>
+            <th>
+                Utente
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.valutazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Film.titolo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utente.cognome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id_valutazione">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id_valutazione">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id_valutazione">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+@foreach (var item in Model)
+{
+    <div class="testimonials-box-container">
+        <div class="testimonials-box rounded">
+            <div class="box-top">
+                <div>
+                    <div>
+                        <strong> @Html.DisplayFor(modelItem => item.Film.titolo) </strong>
+                    </div>
+                </div>
+                <div>
+                    <strong> @Html.DisplayFor(modelItem => item.Utente.nome) </strong>
+                    <strong> @Html.DisplayFor(modelItem => item.Utente.cognome) </strong>
+                </div>
+            </div>
+            <div class="Recensioni-Scritto">
+                <p>@Html.DisplayFor(modelItem => item.valutazione)</p>
+            </div>
+            <div>
+                <a asp-action="Delete" asp-route-id="@item.Id_valutazione">Delete</a>
+            </div>
+        </div>
+    </div>
+}
+

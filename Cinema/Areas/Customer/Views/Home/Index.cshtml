@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Film>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="color:#4F4557" class="text-center">
+    <h1 style="color: white" class="display-4">Benvenuto!</h1>
+    <hr style="color: white"/>
+    <p style="color: white">Scegli il film che fa per te!<p>
+
+    <div class="row pb-3">
+        @foreach (var product in Model)
+        {
+            <div class="col-lg-3 col-md-6">
+                <div class="row p-2">
+                    <div class="col-12 p-1" style="border: 1px solid #2E4F4F; border-radius: 5px">
+                        <div class="card rounded">
+                            <img src="@product.copertina" class="card-img-top rounded" style="height: 400px" />
+                                
+                            <div class="card-body">
+                                <div class="pl-1">
+                                    <p style="color: black" class="card-title h5">@product.titolo</p>
+                                    <p style="color: black" class="card-title">Durata: <b>@product.durata</b> minuti</p>
+                                </div>
+                                <div class="pl-1">
+                                    <p><b>@product.descrizione</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    <br />
+    <br />    
+</div>
+@section Scripts{
+
+    <script src="~/js/homeProducts.js"></script>
+
+}

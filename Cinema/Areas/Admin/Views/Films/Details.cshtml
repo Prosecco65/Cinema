@@ -1,0 +1,48 @@
+﻿@model Cinema.Models.Film
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Film</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.titolo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.titolo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.genere)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.genere)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.descrizione)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descrizione)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.durata)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.durata)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.copertina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.copertina)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id_film">Edit</a> |
+    <a asp-action="Index">Torna alla lista</a>
+</div>

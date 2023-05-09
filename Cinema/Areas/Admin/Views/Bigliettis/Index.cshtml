@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Cinema.Models.Biglietti>
+
+@{
+    ViewData["Title"] = "Biglietti";
+}
+
+<h1>Biglietti</h1>
+
+<table class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                Utente
+            </th>
+            <th>
+                Posto
+            </th>
+            <th>
+                Film
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utente.cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Posti.Id_posti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_spettacolo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

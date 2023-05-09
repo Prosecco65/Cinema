@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Cinema.Models.Sala>
+
+@{
+    ViewData["Title"] = "Sala";
+}
+
+<h1>Lista delle sale</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                Numero sala
+            </th>
+            <th>
+                Posti disponibili
+            </th>
+            <th>
+                iSense
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                 @Html.DisplayFor(modelItem => item.Id_sala)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numeroPosti)
+            </td>
+            
+                @*@Html.DisplayFor(modelItem => item.isense)*@
+                @if (item.isense == true)
+                {
+                    <td>
+                        Presente
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Non presente
+                    </td>
+                }
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id_sala">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id_sala">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id_sala">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

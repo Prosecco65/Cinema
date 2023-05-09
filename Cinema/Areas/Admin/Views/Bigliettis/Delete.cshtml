@@ -1,0 +1,38 @@
+﻿@model Cinema.Models.Biglietti
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete biglietto</h1>
+
+<h3>Sei sicuro di voler eliminare?</h3>
+<div>
+    <h4>Biglietti</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Utente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Utente.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Posti)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Posti.Id_posti)
+        </dd>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id_spettacolo)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id_biglietti" />
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Id_posti" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Torna alla lista</a>
+    </form>
+</div>

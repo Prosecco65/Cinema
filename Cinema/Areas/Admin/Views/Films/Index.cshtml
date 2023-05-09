@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Cinema.Models.Film>
+
+@{
+    ViewData["Title"] = "Film";
+}
+
+<h1>Indice film</h1>
+
+<p>
+    <a asp-action="Upsert">Crea Nuovo</a>
+</p>
+<table id="tblData" class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                Titolo
+            </th>
+            <th>
+                Genere
+            </th>
+            <th>
+                Descrizione
+            </th>
+            <th>
+                Durata
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titolo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.genere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descrizione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.durata) minuti
+            </td>
+            @*<td>
+                <img src=@Html.DisplayFor(modelItem => item.copertina)>
+            </td>*@
+            <td>
+                    <a asp-action="Upsert" asp-route-id="@item.Id_film">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id_film">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id_film">Delete</a>
+            </td>
+        </tr>      
+}
+    </tbody>
+</table>
+@*@section Scripts{
+    <script src="~/js/film.js"></script>
+}*@

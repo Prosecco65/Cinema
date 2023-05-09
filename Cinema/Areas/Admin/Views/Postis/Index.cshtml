@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Cinema.Models.Posti>
+
+@{
+    ViewData["Title"] = "Posti";
+}
+
+<h1>Posti</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Costo
+            </th>
+            <th>
+                Sala
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Id_posti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costo) €
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sala.Id_sala)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id_posti">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id_posti">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id_posti">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

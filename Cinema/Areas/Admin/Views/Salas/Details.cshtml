@@ -1,0 +1,30 @@
+﻿@model Cinema.Models.Sala
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Sala</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.numeroPosti)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.numeroPosti)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.isense)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.isense)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id_sala">Edit</a> |
+    <a asp-action="Index">Torna alla lista</a>
+</div>

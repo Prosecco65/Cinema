@@ -1,0 +1,47 @@
+﻿@model Cinema.Models.Utente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Utente</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cognome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cognome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sesso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sesso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.data_nascita)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.data_nascita)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.residenza)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.residenza)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Torna alla lista</a>
+</div>

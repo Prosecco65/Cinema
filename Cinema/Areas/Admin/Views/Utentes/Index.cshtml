@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Cinema.Models.Utente>
+
+@{
+    ViewData["Title"] = "Utenti";
+}
+
+<h1>Elenco Utenti</h1>
+
+<table class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Cognome
+            </th>
+            <th>
+                E-Mail
+            </th>
+            <th>
+                Sesso
+            </th>
+            <th>
+                Data di nascita
+            </th>
+            <th>
+                Comune di residenza
+                @*@Html.DisplayNameFor(model => model.residenza)*@ 
+                @*Prova per recuperare la stringa*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sesso)
+              @*  @if (item.sesso == true)
+                {
+                    <td>
+                        Maschio
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Femmina
+                    </td>  
+                }*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_nascita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.residenza)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
